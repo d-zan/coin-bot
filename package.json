@@ -1,0 +1,29 @@
+{
+  "name": "coin-bot",
+  "version": "1.0.0",
+  "description": "Make money, make yourself",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "DZAN",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/builders": "^1.9.0",
+    "@discordjs/rest": "^2.3.0",
+    "@st.db/mongodb": "^1.0.0",
+    "@types/node": "^18.0.6",
+    "chalk": "^4.1.2",
+    "discord-api-types": "^0.37.112",
+    "discord-modals": "^1.3.9",
+    "discord.js": "^13.17.1",
+    "dotenv": "^16.4.5",
+    "generater.js": "^2.0.1",
+    "ms": "^2.1.3",
+    "node-cron": "^3.0.3",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.33.4",
+    "st.db": "^7.2.10"
+  }
+}
