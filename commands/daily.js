@@ -8,7 +8,7 @@ const genMessage = require("../JS/genMessage");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("daily")
-    .setDescription("Claim your daily coins"),
+    .setDescription(`Claim your daily coins ${max}`),
   /**
    * @param {import('discord.js').CommandInteraction} interaction
    */
@@ -16,7 +16,7 @@ module.exports = {
     const number = randomNumber(min, max);
     await interaction.deferReply({ ephemeral: false });
     const data = new Table(interaction.user.id, db);
-    if (await data.has("daily") && await data.get("daily" === 1)) {
+    if ((await data.has("daily")) && (await data.get("daily")) === 1) {
       await interaction.editReply("You Claimed your daily.");
     } else {
       await data.math("coins", "+", number).then(async () => {

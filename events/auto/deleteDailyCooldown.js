@@ -10,14 +10,16 @@ module.exports = {
   async run() {
     setInterval(() => {
       client.guilds.cache.forEach(async (guild) => {
-        guild.members.cache.forEach(async (m) => {
-          if (m.user.bot) return;
-          const data = new Table(m.user.id, db);
-          if (await data.has("daily")) {
-            const daily = await data.get("daily");
-            if (daily === 1) data.set("daily", 0);
-          }
-        });
+        guild.members.cache
+          .filter((m) => m.user.bot)
+          .forEach(async (m) => {
+            const data = new Table(m.user.id, db);
+            if (await data.has("daily")) {
+              const daily = await data.get("daily");
+              if (daily === 1) data.set("daily", 2);
+              //console.log(`Reload Daily: ${m.user.tag}`);
+            }
+          });
       });
     }, ms("1d"));
   },
